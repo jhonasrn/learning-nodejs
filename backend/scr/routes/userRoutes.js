@@ -1,24 +1,12 @@
 const express = require('express');
-const router = express.Router();
+const UserController = require('./controllers/UserController');
 
-// Criar
-router.post('/users', (req, res) => {
-    res.send('Usuário criado!');
-});
+const routes = express.Router();
 
-// Ler
-router.get('/users', (req, res) => {
-    res.send('Listar usuários!');
-});
+// Rota para criar um usuário
+routes.post('/users', UserController.create);
 
-// Atualizar
-router.put('/users/:id', (req, res) => {
-    res.send(`Usuário ${req.params.id} atualizado!`);
-});
+// Rota para listar todos os usuários (opcional)
+routes.get('/users', UserController.list);
 
-// Deletar
-router.delete('/users/:id', (req, res) => {
-    res.send(`Usuário ${req.params.id} deletado!`);
-});
-
-module.exports = router;
+module.exports = routes;
