@@ -1,1 +1,0 @@
-# Repositorio destinado ao aprendizado
